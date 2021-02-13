@@ -10,7 +10,7 @@ import { sortBy } from '../slices/sortSlice.js';
 const SearchMenu = () => {
   const dispatch = useDispatch();
 
-  const handleChange = (values) => {
+  const handleSort = (values) => {
     console.log(values.target.value);
     dispatch(sortBy(values.target.value));
   };
@@ -23,12 +23,12 @@ const SearchMenu = () => {
           // onSubmit={(values) => {
           //   console.log(values);
           // }}
-          // onChange={handleChange}
+          // onChange={handleSort}
         >
           {(/* { values } */) => (
             <Form>
               <div id="radio-group" className="font-weight-bold">Сортировать</div>
-              <div onChange={handleChange} role="group" aria-labelledby="radio-group">
+              <div onChange={handleSort} role="group" aria-labelledby="radio-group">
                 <div className="form-check">
                   <label className="form-check-label">
                     <Field type="radio" name="picked" value="ascendingPrice" className="form-check-input" /* checked */ />
@@ -69,7 +69,7 @@ const SearchMenu = () => {
         >
           {({ values }) => (
             <Form>
-              <div id="checkbox-group" className="font-weight-bold">Фильтровать</div>
+              <div id="checkbox-group" className="font-weight-bold">Пересадки</div>
               <div role="group" aria-labelledby="checkbox-group">
                 <div className="form-check">
                   <label className="form-check-label">

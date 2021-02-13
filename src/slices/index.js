@@ -4,5 +4,5 @@ import sortReducer from './sortSlice.js';
 
 export default combineReducers({
   flights: flightsReducer,
-  sorted: sortReducer,
+  sort: sortReducer,
 });

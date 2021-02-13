@@ -18,7 +18,7 @@ export default (initialState) => {
     .filter(({ flight: { legs: { 0: { segments } } } }) => _.hasIn(segments[segments.length - 1], 'arrivalCity')) // remove 5 'flights to nowhere' in JSON
     .map(({ flight }) => {
       const carrier = flight.carrier.caption;
-      const price = flight.price.total.amount;
+      const price = Number(flight.price.total.amount);
       const [leftLeg, rightLeg] = flight.legs.map((leg) => {
         const {
           departureCity, departureAirport, departureDate, airline,
@@ -45,6 +45,7 @@ export default (initialState) => {
         price,
         leftLeg,
         rightLeg,
+        totalDuration: leftLeg.duration + rightLeg.duration,
       };
     });
   // console.log(flights);
