@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/gridnine-avia-search/static/js/main.d4dac741.chunk.js",
+    "main.js.map": "/gridnine-avia-search/static/js/main.d4dac741.chunk.js.map",
+    "runtime-main.js": "/gridnine-avia-search/static/js/runtime-main.2935c5a3.js",
+    "runtime-main.js.map": "/gridnine-avia-search/static/js/runtime-main.2935c5a3.js.map",
+    "static/css/2.150d169a.chunk.css": "/gridnine-avia-search/static/css/2.150d169a.chunk.css",
+    "static/js/2.1dc72e14.chunk.js": "/gridnine-avia-search/static/js/2.1dc72e14.chunk.js",
+    "static/js/2.1dc72e14.chunk.js.map": "/gridnine-avia-search/static/js/2.1dc72e14.chunk.js.map",
+    "index.html": "/gridnine-avia-search/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/gridnine-avia-search/static/css/2.150d169a.chunk.css.map",
+    "static/js/2.1dc72e14.chunk.js.LICENSE.txt": "/gridnine-avia-search/static/js/2.1dc72e14.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2935c5a3.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.1dc72e14.chunk.js",
+    "static/js/main.d4dac741.chunk.js"
+  ]
+}
