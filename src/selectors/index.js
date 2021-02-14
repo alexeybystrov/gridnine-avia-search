@@ -21,11 +21,25 @@ export const getSortedFlights = createSelector(
   },
 );
 
-export const getFilteredFlights = createSelector(
+export const transfersSelector = createSelector(
   [getSortedFlights, getFilterStatus],
   (flights, filterBy) => {
-    if (filterBy.length === 0) {
+    if (filterBy.transfers.length === 0) {
       return flights;
     } return flights.filter(({ totalTransfers }) => _.includes(filterBy.transfers, totalTransfers));
   },
+);
+
+export const carriersSelector = createSelector(
+  [getSortedFlights, getFilterStatus],
+  (flights, filterBy) => {
+    if (filterBy.carriers.length === 0) {
+      return flights;
+    } return flights.filter(({ carrier }) => _.includes(filterBy.carriers, carrier));
+  },
+);
+
+export const getFilteredFlights = createSelector(
+  [transfersSelector, carriersSelector],
+  (byTransfers, byCarriers) => _.intersection(byTransfers, byCarriers),
 );
