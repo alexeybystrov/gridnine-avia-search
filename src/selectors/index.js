@@ -57,6 +57,24 @@ const carriersSelector = createSelector(
   },
 );
 
+export const priceCarriersSelector = createSelector(
+  priceFromSelector,
+  priceUpToSelector,
+  carriersSelector,
+  (byPriceFrom, byPriceUpTo, byCarriers) => (
+    _.intersection(byPriceFrom, byPriceUpTo, byCarriers)
+  ),
+);
+
+export const transfersPriceSelector = createSelector(
+  transfersSelector,
+  priceFromSelector,
+  priceUpToSelector,
+  (byTransfers, byPriceFrom, byPriceUpTo) => (
+    _.intersection(byTransfers, byPriceFrom, byPriceUpTo)
+  ),
+);
+
 const totalSelector = createSelector(
   transfersSelector,
   priceFromSelector,

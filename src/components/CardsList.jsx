@@ -5,10 +5,7 @@ import Card from './Card.jsx';
 import getFilteredFlights from '../selectors/index.js';
 
 const CardsList = () => {
-  // const flights = useSelector((state) => state.flights);
-  // const sortedFlights = useSelector(getSortedFlights);
   const filteredFlights = useSelector(getFilteredFlights);
-  console.log(filteredFlights);
 
   return (
     <div className="col h-100" style={{ marginLeft: '320px' }}>
