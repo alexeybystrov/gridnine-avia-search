@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-// import path from 'path';
-// import fs from 'fs';
 import _ from 'lodash';
 import App from './components/App';
 import rootReducer from './slices/index.js';
