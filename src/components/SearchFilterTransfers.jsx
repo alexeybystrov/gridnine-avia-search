@@ -10,7 +10,7 @@ const SearchFilterTransfers = () => {
   const flights = useSelector((state) => state.flights);
   const transfers = _.uniq(flights.map((flight) => flight.totalTransfers)).sort();
 
-  const handleFilter = (values) => {
+  const handleChange = (values) => {
     dispatch(filterTransfers(Number(values.target.name)));
   };
 
@@ -22,7 +22,7 @@ const SearchFilterTransfers = () => {
         }}
       >
         {({ values }) => (
-          <Form onChange={handleFilter}>
+          <Form onChange={handleChange}>
             <div id="checkbox-group" className="font-weight-bold">Пересадки</div>
             <div role="group" aria-labelledby="checkbox-group">
               {transfers.map((transfer) => (

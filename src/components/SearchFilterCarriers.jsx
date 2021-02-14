@@ -10,7 +10,7 @@ const SearchFilterCarriers = () => {
   const flights = useSelector((state) => state.flights);
   const carriers = _.uniq(flights.map((flight) => flight.carrier)).sort();
 
-  const handleFilter = (values) => {
+  const handleChange = (values) => {
     dispatch(filterCarriers(values.target.name));
   };
 
@@ -22,7 +22,7 @@ const SearchFilterCarriers = () => {
         }}
       >
         {({ values }) => (
-          <Form onChange={handleFilter}>
+          <Form onChange={handleChange}>
             <div id="checkbox-group" className="font-weight-bold">Авиакомпании</div>
             <div role="group" aria-labelledby="checkbox-group">
               {carriers.map((carrier) => (

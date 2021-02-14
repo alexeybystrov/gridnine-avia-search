@@ -2,12 +2,14 @@
 import React from 'react';
 import SearchSort from './SearchSort.jsx';
 import SearchFilterTransfers from './SearchFilterTransfers.jsx';
+import SearchFilterPrice from './SearchFilterPrice.jsx';
 import SearchFilterCarriers from './SearchFilterCarriers.jsx';
 
 const SearchMenu = () => (
   <div className="col-auto border position-fixed">
     <SearchSort />
     <SearchFilterTransfers />
+    <SearchFilterPrice />
     <SearchFilterCarriers />
   </div>
 );

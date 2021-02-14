@@ -5,7 +5,7 @@ const getFlights = (state) => state.flights;
 const getSortStatus = (state) => state.sort;
 const getFilterStatus = (state) => state.filter;
 
-export const getSortedFlights = createSelector(
+const getSortedFlights = createSelector(
   [getFlights, getSortStatus],
   (flights, sortBy) => {
     switch (sortBy) {
@@ -21,7 +21,7 @@ export const getSortedFlights = createSelector(
   },
 );
 
-export const transfersSelector = createSelector(
+const transfersSelector = createSelector(
   [getSortedFlights, getFilterStatus],
   (flights, filterBy) => {
     if (filterBy.transfers.length === 0) {
@@ -30,7 +30,25 @@ export const transfersSelector = createSelector(
   },
 );
 
-export const carriersSelector = createSelector(
+const priceFromSelector = createSelector(
+  [getSortedFlights, getFilterStatus],
+  (flights, filterBy) => {
+    if (filterBy.price.from === null) {
+      return flights;
+    } return flights.filter(({ price }) => price >= filterBy.price.from);
+  },
+);
+
+const priceUpToSelector = createSelector(
+  [getSortedFlights, getFilterStatus],
+  (flights, filterBy) => {
+    if (filterBy.price.upTo === null || filterBy.price.upTo === '0') {
+      return flights;
+    } return flights.filter(({ price }) => price <= filterBy.price.upTo);
+  },
+);
+
+const carriersSelector = createSelector(
   [getSortedFlights, getFilterStatus],
   (flights, filterBy) => {
     if (filterBy.carriers.length === 0) {
@@ -39,7 +57,14 @@ export const carriersSelector = createSelector(
   },
 );
 
-export const getFilteredFlights = createSelector(
-  [transfersSelector, carriersSelector],
-  (byTransfers, byCarriers) => _.intersection(byTransfers, byCarriers),
+const totalSelector = createSelector(
+  transfersSelector,
+  priceFromSelector,
+  priceUpToSelector,
+  carriersSelector,
+  (byTransfers, byPriceFrom, byPriceUpTo, byCarriers) => (
+    _.intersection(byTransfers, byPriceFrom, byPriceUpTo, byCarriers)
+  ),
 );
+
+export default totalSelector;

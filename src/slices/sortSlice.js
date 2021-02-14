@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const sortSlice = createSlice({
   name: 'sort',
-  initialState: 'none',
+  initialState: '',
   reducers: {
     sortBy: (state, { payload }) => (payload),
   },
