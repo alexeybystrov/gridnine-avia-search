@@ -12,7 +12,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 
 export default (initialState) => {
-  // console.log(initialState);
   const flights = initialState.result.flights
     .filter(({ flight: { legs: { 1: { segments } } } }) => _.hasIn(segments[0], 'departureCity')) // remove 3 'flights from nowhere' in JSON
     .filter(({ flight: { legs: { 0: { segments } } } }) => _.hasIn(segments[segments.length - 1], 'arrivalCity')) // remove 5 'flights to nowhere' in JSON
@@ -49,7 +48,6 @@ export default (initialState) => {
         totalTransfers: _.max([leftLeg.transfers, rightLeg.transfers]),
       };
     });
-  // console.log(flights);
 
   const store = configureStore({
     reducer: rootReducer,
