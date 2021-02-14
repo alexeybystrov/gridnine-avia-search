@@ -46,6 +46,7 @@ export default (initialState) => {
         leftLeg,
         rightLeg,
         totalDuration: leftLeg.duration + rightLeg.duration,
+        totalTransfers: _.max([leftLeg.transfers, rightLeg.transfers]),
       };
     });
   // console.log(flights);
