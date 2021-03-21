@@ -1,4 +1,4 @@
-# Тестовое задание для Gridnine
+# Тестовое задание для Gridnine на React
 
 <https://alexeybystrov.github.io/gridnine-avia-search/>
 
